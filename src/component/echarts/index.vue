@@ -2,7 +2,8 @@
   <div ref="charts" class="eez-charts-wrapper"></div>
 </template>
 <script>
-  import echart from 'echart'
+  import echarts from 'echarts'
+  import EzChart from 'ez-chart'
   import throttle from 'lodash/throttle'
   import _isArray from 'lodash/isArray'
 
@@ -17,7 +18,7 @@
         type: String,
         required: true,
         validator: function (type) {
-          return extendOptions.checkType(type)
+          return EzChart.checkType(type)
         }
       },
       keyMap: {
@@ -51,7 +52,7 @@
     },
     methods: {
       getOptions () {
-        return extendOptions.getOption(this.datas, this.type, this.keyMap, this.params)
+        return EzChart.getOption(this.datas, this.type, this.keyMap, this.params)
       },
       resize () {
         this.resizeChart()
