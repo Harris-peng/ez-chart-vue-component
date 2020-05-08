@@ -1,6 +1,6 @@
-import EzCharts from './index.vue'
+import EzChart from './index.vue'
 export default {
-  install (vue, options) {
-    vue.component('EzChart', EzCharts)
+  install (Vue, options) {
+    Vue.component('ez-chart', EzChart)
   }
 }

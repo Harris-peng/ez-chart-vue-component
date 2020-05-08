@@ -3,7 +3,7 @@
 </template>
 <script>
   import echarts from 'echarts'
-  import EzChart from 'ez-chart'
+  import EzChart from '../../ez-chart'
   import throttle from 'lodash/throttle'
   import _isArray from 'lodash/isArray'
 
@@ -18,7 +18,7 @@
         type: String,
         required: true,
         validator: function (type) {
-          return EzChart.checkType(type)
+          return EzChart.utils.checkType(type)
         }
       },
       keyMap: {
@@ -46,13 +46,14 @@
       return {
         noData: false,
         resizeChart: () => {},
+        ezChart: null,
         noDataDom: '',
         chart: null
       }
     },
     methods: {
       getOptions () {
-        return EzChart.getOption(this.datas, this.type, this.keyMap, this.params)
+        return this.ezChart.getOption({data: this.data, type: this.type, keyMap: this.keyMap, params: this.params})
       },
       resize () {
         this.resizeChart()
@@ -74,7 +75,7 @@
         dom && this.$refs.charts.removeChild(dom)
       },
       renderChart () {
-        if ((_isArray(this.datas) && this.datas.length) || (this.datas.data && (this.datas.data.length || Object.keys(this.datas.data).length))) {
+        if ((_isArray(this.data) && this.data.length) || (this.data.data && (this.data.data.length || Object.keys(this.data.data).length))) {
           const options = this.getOptions()
           this.removeNoDataDom()
           this.logMessage(JSON.stringify(options))
@@ -86,12 +87,15 @@
           this.$refs.charts.appendChild(this.noDataDom)
           this.chart.setOption({}, { notMerge: true })
           this.logMessage('暂无数据')
-          this.logMessage(JSON.stringify(this.datas))
+          this.logMessage(JSON.stringify(this.data))
         }
       }
     },
+    created() {
+      this.ezChart = new EzChart();
+    },
     watch: {
-      datas: function (newVal) {
+      data: function (newVal) {
         this.$nextTick(() => {
           this.logMessage('watch data change')
           this.renderChart()
@@ -111,7 +115,7 @@
       if (this.register) {
         this.logMessage('register click event')
         this.chart.on('click', function (params) {
-          _this.$emit('listener', params, _this.datas)
+          _this.$emit('listener', params, _this.data)
         })
       }
     },

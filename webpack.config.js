@@ -53,9 +53,9 @@ module.exports = {
   performance: {
     hints: false
   },
-  externals: {
+  /*externals: {
     echarts: 'echarts'
-  },
+  },*/
   devtool: '#eval-source-map'
 }
 
