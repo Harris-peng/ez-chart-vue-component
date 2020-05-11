@@ -53,8 +53,10 @@ module.exports = {
   performance: {
     hints: false
   },
-  /*externals: {
-    echarts: 'echarts'
+ /* externals: {
+    echarts: 'echarts',
+    vue: 'vue',
+    lodash: 'lodash',
   },*/
   devtool: '#eval-source-map'
 }
