@@ -1,19 +1,31 @@
 <template>
-  <div ref="charts" class="eez-charts-wrapper"></div>
+  <div class="ez-charts">
+    <div ref="charts" class="ez-charts-wrapper"></div>
+    <slot v-if="!noData">
+      <div class="ez-charts-no-data">暂无数据</div>
+    </slot>
+  </div>
 </template>
 <script>
   import echarts from 'echarts'
   import EzChart from '../../ez-chart'
   import throttle from 'lodash/throttle'
-  import _isArray from 'lodash/isArray'
-
+  import isArray from 'lodash/isArray'
+  import get from 'lodash/get'
+  const eventList = {
+    'click': true,
+    'dblclick': true,
+    'mousedown': true,
+    'mousemove': true,
+    'mouseup': true,
+    'mouseover': true,
+    'mouseout': true,
+    'globalout': true,
+    'contextmenu': true
+  }
   export default {
-    name: 'ez-charts',
+    name: 'ez-vue-charts',
     props: {
-      data: {
-        type: [Array, Object],
-        required: true
-      },
       type: {
         type: String,
         required: true,
@@ -24,75 +36,71 @@
       keyMap: {
         type: Array,
         default () {
-          return []
+          return ['label', 'value']
         }
       },
-      register: {
-        type: Boolean,
-        default: false
-      },
-      log: {
-        type: Boolean,
-        default: false
+      data: {
+        type: [Array, Object],
+        required: true
       },
       params: {
         type: Object,
         default () {
           return {}
         }
+      },
+      echartsInitOptions: {
+        type: Object,
+        default () {
+          return {}
+        }
+      },
+      registerTheme: {
+        type: String,
+        default: ''
+      },
+      register: {
+        type: [String, Array],
+        validator: function (events) {
+          if (typeof events === 'string') events = [events]
+          const res = events.filter(event => {
+            return !eventList[event]
+          })
+          return !res.length
+        }
+      },
+      resizeWaiting: {
+        type: Number,
+        default: 500
+      },
+      styles: {
+        type: Object,
+        default () {
+          return {
+            height: '300px',
+            width: 'auto',
+          }
+        }
+      },
+      log: {
+        type: Boolean,
+        default: false
       }
     },
     data () {
       return {
-        noData: false,
         resizeChart: () => {},
         ezChart: null,
-        noDataDom: '',
-        chart: null
-      }
-    },
-    methods: {
-      getOptions () {
-        return this.ezChart.getOption({data: this.data, type: this.type, keyMap: this.keyMap, params: this.params})
-      },
-      resize () {
-        this.resizeChart()
-      },
-      logMessage (message) {
-        if (this.log) {
-          console.log(`${this.$route.name}-->echarts-->type-->${this.type}-->message--》:`, message)
-        }
-      },
-      setNoDataDom () {
-        const node = document.createElement('div')
-        node.className = 'echarts-no-data'
-        const text = document.createTextNode('暂无数据')
-        node.appendChild(text)
-        return node
-      },
-      removeNoDataDom () {
-        const dom = this.$refs.charts.getElementsByClassName('echarts-no-data')[0]
-        dom && this.$refs.charts.removeChild(dom)
-      },
-      renderChart () {
-        if ((_isArray(this.data) && this.data.length) || (this.data.data && (this.data.data.length || Object.keys(this.data.data).length))) {
-          const options = this.getOptions()
-          this.removeNoDataDom()
-          this.logMessage(JSON.stringify(options))
-          this.noData = false
-          this.chart.setOption(options)
-        } else {
-          this.noData = true
-          this.noDataDom = this.setNoDataDom()
-          this.$refs.charts.appendChild(this.noDataDom)
-          this.chart.setOption({}, { notMerge: true })
-          this.logMessage('暂无数据')
-          this.logMessage(JSON.stringify(this.data))
-        }
+        echarts: null
       }
     },
     created() {
       this.ezChart = new EzChart();
+    },
+    computed: {
+      noData () {
+        return this.hasData();
+      }
     },
     watch: {
       data: function (newVal) {
@@ -102,36 +110,66 @@
         })
       }
     },
+    methods: {
+      getOptions () {
+        return this.ezChart.getOption({data: this.data, type: this.type, keyMap: this.keyMap, params: this.params})
+      },
+      renderChart () {
+        this.logMessage('beginRender')
+        if (this.hasData()) {
+          const options = this.getOptions()
+          this.logMessage(options)
+          this.echarts.setOption(options)
+        }
+        this.logMessage('endRender')
+      },
+      logMessage (message) {
+        if (this.log) {
+          console.log(`echarts-->type-->${this.type}-->message--》:`, message)
+        }
+      },
+      hasData () {
+        if (isArray(this.data)) {
+          return Boolean(this.data.length);
+        } else {
+          return Boolean(Object.keys(get(this, 'data.data'), {}).length)
+        }
+      }
+    },
     mounted () {
-      this.logMessage('init')
-      this.chart = echarts.init(this.$refs.charts, 'tdTheme')
+      this.logMessage('beginInit')
+      const {width, height} = this.styles;
+      this.echarts = echarts.init(this.$refs.charts, this.registerTheme, Object.assign({width, height}, this.echartsInitOptions));
       this.renderChart()
       this.resizeChart = throttle(() => {
-        this.logMessage('resize')
-        this.chart.resize()
-      }, 500)
+        this.logMessage('beginResize')
+        this.echarts.resize()
+        this.logMessage('endResize')
+      }, this.resizeWaiting)
       window.addEventListener('resize', this.resizeChart)
       const _this = this
       if (this.register) {
         this.logMessage('register click event')
-        this.chart.on('click', function (params) {
+        this.echarts.on('click', function (params) {
+          _this.logMessage('emit click event')
           _this.$emit('listener', params, _this.data)
         })
       }
+      this.logMessage('EndInit')
     },
     destroyed () {
       window.removeEventListener('resize', this.resizeChart)
-      this.chart && this.chart.dispose()
+      this.echarts && this.echarts.dispose()
       this.logMessage('destroyed echarts')
     }
   }
 </script>
 
 <style scoped>
-  .eez-charts-wrapper {
+  .ez-charts,.ez-charts-wrapper {
     position: relative;
   }
-  /deep/ .echarts-no-data {
+  .ez-charts-no-data {
     position: absolute;
     top: 100px;
     left: 50%;

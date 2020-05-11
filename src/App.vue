@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-      <ez-chart style="width: 300px;height: 300px" :data="data" :keyMap="['label', 'val']" type="bar"></ez-chart>
+      <ez-chart log :data="data" :keyMap="['label', 'val']" type="bar" register="click2"></ez-chart>
+      <ez-chart log :data="data" :keyMap="['label', 'val']" type="pie"></ez-chart>
+      <ez-chart :data="[]" :keyMap="['label', 'val']" type="pie"></ez-chart>
   </div>
 </template>
 
