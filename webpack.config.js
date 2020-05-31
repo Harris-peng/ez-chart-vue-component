@@ -1,8 +1,7 @@
 var path = require('path')
 var webpack = require('webpack')
-
 module.exports = {
-  entry: './src/main.js',
+  entry: process.env.NODE_ENV ===  'production' ? './src/component/echarts/index.js' : './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
@@ -53,16 +52,25 @@ module.exports = {
   performance: {
     hints: false
   },
- /* externals: {
-    echarts: 'echarts',
-    vue: 'vue',
-    lodash: 'lodash',
-  },*/
   devtool: '#eval-source-map'
 }
 
 if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map'
+  module.exports.externals = {
+    echarts: 'echarts',
+    'ez-chart': 'EzChart',
+    vue: 'Vue',
+    lodash: 'lodash',
+  }
+  module.exports.output = {
+    path: path.resolve(__dirname, './dist'),
+    publicPath: '/dist/',
+    filename: 'index.[hash].js',
+    library: 'ezVueChart', // 指定的就是你使用require时的模块名
+    libraryExport: 'default',
+    libraryTarget: 'window' // 指定输出格式
+  }
   // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
@@ -70,6 +78,7 @@ if (process.env.NODE_ENV === 'production') {
         NODE_ENV: '"production"'
       }
     }),
+
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
       compress: {

@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-      <ez-chart log :data="data" :keyMap="['label', 'val']" type="bar" register="click2"></ez-chart>
+      <ez-chart log :data="data" :keyMap="['label', 'val', 'val2']" type="bar" register="click"></ez-chart>
       <ez-chart log :data="data" :keyMap="['label', 'val']" type="pie"></ez-chart>
-      <ez-chart :data="[]" :keyMap="['label', 'val']" type="pie"></ez-chart>
+      <ez-chart :data="data" :keyMap="['label', 'val', 'val2']" type="line"></ez-chart>
+      <ez-chart :data="data" :keyMap="['label', 'val']" type="funnel"></ez-chart>
+      <ez-chart :data="data2" :keyMap="['val']" type="scatter"></ez-chart>
   </div>
 </template>
 
@@ -11,20 +13,59 @@ export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
       data: [
         {
           label: 'test',
           val: 111,
+          val2: 31,
         },
         {
           label: 'test2',
-          val: 222,
+          val: 312,
+          val2: 142,
         },
         {
           label: 'test4',
           val: 333,
+          val2: 112,
         }
+      ],
+      data2: [
+        {
+          name: 'test',
+          val: [10.0, 8.04],
+        },
+        {
+          name: 'tes2t',
+          val: [8.0, 6.95],
+        },{
+          name: 'te32s3t',
+          val: [13.0, 7.58],
+        },{
+          name: 't1es3t',
+          val:  [9.0, 8.81],
+        },{
+          name: 'te13s3t',
+          val: [11.0, 8.33],
+        },{
+          name: 't3es3t',
+          val: [14.0, 9.96],
+        },{
+          name: 't1es3t',
+          val: [6.0, 7.24],
+        },{
+          name: 't4es3t',
+          val: [4.0, 4.26],
+        },{
+          name: 'tes123t',
+          val: [12.0, 10.84],
+        },{
+          name: 'te2s3t',
+          val: [7.0, 4.82],
+        },{
+          name: 'tes113t',
+          val: [5.0, 5.68]
+        },
       ]
     }
   }
@@ -39,23 +80,5 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
-
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
 }
 </style>

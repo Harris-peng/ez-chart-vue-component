@@ -1,18 +1,23 @@
-# ez-chart-vue-component
+# ez-vue-chart
 
-> 结合ez-ch[C方快捷的创建
+vue组件ez-chart结合外部依赖`EzChart` `vue` `echarts` 为用户快捷生成图表的组件
 
-## Build Setup
+## 安装
 
-``` bash
-# install dependencies
-npm install
+`npm install ez-vue-chart`
+`yarn add ez-vue-chart`
 
-# serve with hot reload at localhost:8080
-npm run dev
+## 使用
 
-# build for production with minification
-npm run build
+```javascript
+// ES6
+import Vue  from 'vue'
+import ezVueChart from 'ez-vue-chart'
+Vue.use(ezVueChart)
+
+//.vue
+<ez-chart log :data="data" :keyMap="['label', 'val', 'val2']" type="bar" register="click"></ez-chart>
+
 ```
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## 参数

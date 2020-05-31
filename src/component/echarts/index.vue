@@ -8,7 +8,7 @@
 </template>
 <script>
   import echarts from 'echarts'
-  import EzChart from '../../ez-chart'
+  import EzChart from 'ez-chart'
   import throttle from 'lodash/throttle'
   import isArray from 'lodash/isArray'
   import get from 'lodash/get'
@@ -24,7 +24,7 @@
     'contextmenu': true
   }
   export default {
-    name: 'ez-vue-charts',
+    name: 'ez-chart-vue-component',
     props: {
       type: {
         type: String,
@@ -90,6 +90,7 @@
     data () {
       return {
         resizeChart: () => {},
+        events: Array.isArray(this.register) ? this.register : [this.register],
         ezChart: null,
         echarts: null
       }
@@ -149,10 +150,12 @@
       window.addEventListener('resize', this.resizeChart)
       const _this = this
       if (this.register) {
-        this.logMessage('register click event')
-        this.echarts.on('click', function (params) {
-          _this.logMessage('emit click event')
-          _this.$emit('listener', params, _this.data)
+        this.logMessage(`register ${this.register} event`)
+        this.events.forEach(event => {
+          this.echarts.on(event, function (params) {
+            _this.logMessage(`emit ${event} event`)
+            _this.$emit('listener', params, _this.data)
+          })
         })
       }
       this.logMessage('EndInit')
