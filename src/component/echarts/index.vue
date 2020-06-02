@@ -154,7 +154,7 @@
         this.events.forEach(event => {
           this.echarts.on(event, function (params) {
             _this.logMessage(`emit ${event} event`)
-            _this.$emit('listener', params, _this.data)
+            _this.$emit('listener', event, params, _this.data)
           })
         })
       }

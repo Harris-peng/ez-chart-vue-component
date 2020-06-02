@@ -1,9 +1,10 @@
 <template>
   <div id="app">
-      <ez-chart log :data="data" :keyMap="['label', 'val', 'val2']" type="bar" register="click"></ez-chart>
-      <ez-chart log :data="data" :keyMap="['label', 'val']" type="pie"></ez-chart>
+      <ez-chart :data="data" :keyMap="['label', 'val', 'val2']" type="bar" @listener="listener" :register="['mouseover', 'click']"></ez-chart>
+      <ez-chart :data="data" :keyMap="['label', 'val']" type="pie"></ez-chart>
       <ez-chart :data="data" :keyMap="['label', 'val', 'val2']" type="line"></ez-chart>
       <ez-chart :data="data" :keyMap="['label', 'val']" type="funnel"></ez-chart>
+      <ez-chart :data="data" :keyMap="['label', 'val']" log :params="{type: 'pie'}" type="bottomLegind"></ez-chart>
       <ez-chart :data="data2" :keyMap="['val']" type="scatter"></ez-chart>
   </div>
 </template>
@@ -67,6 +68,11 @@ export default {
           val: [5.0, 5.68]
         },
       ]
+    }
+  },
+  methods: {
+    listener (event, parmas, data) {
+      console.log(event, parmas, data)
     }
   }
 }
