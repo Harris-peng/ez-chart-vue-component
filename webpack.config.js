@@ -1,5 +1,7 @@
 var path = require('path')
 var webpack = require('webpack')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 module.exports = {
   entry: process.env.NODE_ENV ===  'production' ? './src/component/echarts/index.js' : './src/main.js',
   output: {
@@ -88,5 +90,11 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.LoaderOptionsPlugin({
       minimize: true
     })
+  ])
+}
+const [,,type] = process.argv;
+if (type === 'analyze') {
+  module.exports.plugins = (module.exports.plugins || []).concat([
+    new BundleAnalyzerPlugin()
   ])
 }

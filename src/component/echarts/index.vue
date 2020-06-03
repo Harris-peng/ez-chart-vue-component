@@ -9,9 +9,7 @@
 <script>
   import echarts from 'echarts'
   import EzChart from 'ez-chart'
-  import throttle from 'lodash/throttle'
-  import isArray from 'lodash/isArray'
-  import get from 'lodash/get'
+  import lodash from 'lodash'
   const eventList = {
     'click': true,
     'dblclick': true,
@@ -90,7 +88,7 @@
     data () {
       return {
         resizeChart: () => {},
-        events: Array.isArray(this.register) ? this.register : [this.register],
+        events: lodash.isArray(this.register) ? this.register : [this.register],
         ezChart: null,
         echarts: null
       }
@@ -130,10 +128,10 @@
         }
       },
       hasData () {
-        if (isArray(this.data)) {
+        if (lodash.isArray(this.data)) {
           return Boolean(this.data.length);
         } else {
-          return Boolean(Object.keys(get(this, 'data.data'), {}).length)
+          return Boolean(Object.keys(lodash.get(this, 'data.data'), {}).length)
         }
       }
     },
@@ -142,7 +140,7 @@
       const {width, height} = this.styles;
       this.echarts = echarts.init(this.$refs.charts, this.registerTheme, Object.assign({width, height}, this.echartsInitOptions));
       this.renderChart()
-      this.resizeChart = throttle(() => {
+      this.resizeChart = lodash.throttle(() => {
         this.logMessage('beginResize')
         this.echarts.resize()
         this.logMessage('endResize')
