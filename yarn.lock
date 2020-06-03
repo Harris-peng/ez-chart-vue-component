@@ -3240,27 +3240,6 @@ extract-text-webpack-plugin@^3.0.0:
     schema-utils "^0.3.0"
     webpack-sources "^1.0.1"
 
-ez-chart@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/ez-chart/-/ez-chart-0.0.1.tgz#cbd989f35fbe697414c60901642a4160281a541d"
-  integrity sha512-onBOOuf3u8MDj763jBvF8LKXuFxpCul75Cs/B9+Im24DzKJaPfWdN7UNT1xlgANu54MRIbfsLF8qSQpFhIpZPQ==
-  dependencies:
-    lodash "^4.17.15"
-
-ez-chart@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/ez-chart/-/ez-chart-0.0.3.tgz#3accbf111af24d7f5ba5d560ef6bdfb33e8ff82b"
-  integrity sha512-R6wk3Hlpm2mPnq52LPOdl3laUzhH9RPIxmvBefVBsJSTVfaPRDEwLgQsUv2ZAUxwr+SQxxUWmkKtzT/ydd75FA==
-  dependencies:
-    lodash "^4.17.15"
-
-ez-chart@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/ez-chart/-/ez-chart-0.0.4.tgz#7ef71636590d270c8e9cf548da18137059476bb5"
-  integrity sha512-T/7Tm2ci85QwLr9WZ3BRcShdn0pCMeShd4AlMmiPM9YgPjxPW+19c35/TpyOUh+fDpzo9gGJQeSD48rqtfLESA==
-  dependencies:
-    lodash "^4.17.15"
-
 ez-chart@^0.0.5:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/ez-chart/-/ez-chart-0.0.5.tgz#5f20961dae5c1c2d3ade0d4199b8c913a4fd0ea8"
@@ -3268,57 +3247,13 @@ ez-chart@^0.0.5:
   dependencies:
     lodash "^4.17.15"
 
-ez-vue-chart@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/ez-vue-chart/-/ez-vue-chart-0.0.1.tgz#ac845b19899501f9e28536e41dee7d69379b4794"
-  integrity sha512-nwUk+iiRPDogTRYAlN/dLSn/K2vMvr4SeTGRjX5fvXlZAwJVU2LdjgpWCYzoGuQGpKsA80az5fixLOnXRRe+cw==
-  dependencies:
-    echarts "^4.7.0"
-    ez-chart "^0.0.1"
-    lodash "^4.17.15"
-    vue "^2.5.11"
-
-ez-vue-chart@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/ez-vue-chart/-/ez-vue-chart-0.0.2.tgz#2dd6d81de6a571e0ef25d9b10791aceda9c19041"
-  integrity sha512-vT5wBXgqI0Qyq3ezMq7xPATfmyMX6tVH8UvmbUa7eTeSsDhZhKXMO4ww5PGsthCb7hnENGRGss58+mCYkOK8jg==
-  dependencies:
-    echarts "^4.7.0"
-    ez-chart "^0.0.3"
-    ez-vue-chart "^0.0.1"
-    lodash "^4.17.15"
-    vue "^2.5.11"
-
-ez-vue-chart@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/ez-vue-chart/-/ez-vue-chart-0.0.3.tgz#c52b2616feed1ad0ad4353c4809ab197b1cccbf9"
-  integrity sha512-qhnzs/+BQKbr5B/icBj7xWYLOaqd3rtg2jP2gn3YfN7G/x1C+B1o5Wv3wyURMm/SvAxJVg6PUXog4laItLOHXg==
-  dependencies:
-    echarts "^4.7.0"
-    ez-chart "^0.0.4"
-    ez-vue-chart "^0.0.2"
-    lodash "^4.17.15"
-    vue "^2.5.11"
-
-ez-vue-chart@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/ez-vue-chart/-/ez-vue-chart-0.0.4.tgz#882b33143c56b42a19e00570df3178ac6cddfa53"
-  integrity sha512-8NGleDZtBjLu7wWTSx3czkc0Y9+4a/hIntdPtG3j8JQ2JcyjaoGXb6TKSfDc1mA63Z9UA7yJfOEHS6Et/5VMfQ==
+ez-vue-chart@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/ez-vue-chart/-/ez-vue-chart-0.0.6.tgz#f4645fa30bb59c7ba33cff84259d2a207f3668bc"
+  integrity sha512-lthe2/XtqKb8TuU77Gk/fcd++KmFe63VYtgOw3zw2uJScKuxClz0DhmcRyrf5Rau64DT3uUTPXt1iGp1S3wTWQ==
   dependencies:
     echarts "^4.7.0"
     ez-chart "^0.0.5"
-    ez-vue-chart "^0.0.3"
-    lodash "^4.17.15"
-    vue "^2.5.11"
-
-ez-vue-chart@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/ez-vue-chart/-/ez-vue-chart-0.0.5.tgz#c4837464638a5b7d096ba83b08a40f94850ffce2"
-  integrity sha512-gtUGDXLb3HHqDSznvjDWx0sT5jVK4OTC1qsOMRcAYMWEFDaM2y2E08k8gXzW1LrEcBKn/3CopBfQWIRqkCm90A==
-  dependencies:
-    echarts "^4.7.0"
-    ez-chart "^0.0.5"
-    ez-vue-chart "^0.0.4"
     lodash "^4.17.15"
     vue "^2.5.11"
 

@@ -51,7 +51,8 @@ export default {
 </script>
 
 ```
-
+## 示例地址
+[展示地址](http://39.105.196.85:8081/)
 ## 参数
 
 ### EzVueChart Attributes
