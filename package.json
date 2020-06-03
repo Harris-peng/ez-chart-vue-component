@@ -1,7 +1,7 @@
 {
   "name": "ez-vue-chart",
   "description": "vue图表组件,结合ez-chart方便快捷的生成图表",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": "harris-peng <dangpenghao@outlook.com>",
   "license": "0.0.1",
   "main": "dist/ez-vue-chart.js",
