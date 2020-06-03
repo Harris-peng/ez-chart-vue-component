@@ -61,7 +61,12 @@ if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map'
   module.exports.externals = {
     echarts: 'echarts',
-    'ez-chart': 'EzChart',
+    'ez-chart': {
+      commonjs: "EzChart",
+      commonjs2: "EzChart",
+      amd: "EzChart",
+      root: "EzChart" // 指向全局变量
+    },
     vue: 'Vue',
     lodash: 'lodash',
   }
@@ -69,7 +74,7 @@ if (process.env.NODE_ENV === 'production') {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
     filename: 'ez-vue-chart.js',
-    library: 'ezVueChart', // 指定的就是你使用require时的模块名
+    library: 'ezVueChart',
     libraryTarget: 'umd',
     libraryExport: 'default',
   }
