@@ -3261,6 +3261,13 @@ ez-chart@^0.0.4:
   dependencies:
     lodash "^4.17.15"
 
+ez-chart@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/ez-chart/-/ez-chart-0.0.5.tgz#5f20961dae5c1c2d3ade0d4199b8c913a4fd0ea8"
+  integrity sha512-xOWXzgcgoRaNImk0YmhJB9pEIiW8uahK2Il0XYwL6waSziNQrNkWZXt6l5SOTFr6C+TTzvf/rQozuanY0YGTaA==
+  dependencies:
+    lodash "^4.17.15"
+
 ez-vue-chart@^0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/ez-vue-chart/-/ez-vue-chart-0.0.1.tgz#ac845b19899501f9e28536e41dee7d69379b4794"
@@ -3279,6 +3286,17 @@ ez-vue-chart@^0.0.2:
     echarts "^4.7.0"
     ez-chart "^0.0.3"
     ez-vue-chart "^0.0.1"
+    lodash "^4.17.15"
+    vue "^2.5.11"
+
+ez-vue-chart@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/ez-vue-chart/-/ez-vue-chart-0.0.3.tgz#c52b2616feed1ad0ad4353c4809ab197b1cccbf9"
+  integrity sha512-qhnzs/+BQKbr5B/icBj7xWYLOaqd3rtg2jP2gn3YfN7G/x1C+B1o5Wv3wyURMm/SvAxJVg6PUXog4laItLOHXg==
+  dependencies:
+    echarts "^4.7.0"
+    ez-chart "^0.0.4"
+    ez-vue-chart "^0.0.2"
     lodash "^4.17.15"
     vue "^2.5.11"
 

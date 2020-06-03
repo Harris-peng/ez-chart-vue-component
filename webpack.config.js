@@ -68,10 +68,10 @@ if (process.env.NODE_ENV === 'production') {
   module.exports.output = {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'index.[hash].js',
+    filename: 'ez-vue-chart.js',
     library: 'ezVueChart', // 指定的就是你使用require时的模块名
+    libraryTarget: 'umd',
     libraryExport: 'default',
-    libraryTarget: 'window' // 指定输出格式
   }
   // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.plugins = (module.exports.plugins || []).concat([
@@ -80,7 +80,6 @@ if (process.env.NODE_ENV === 'production') {
         NODE_ENV: '"production"'
       }
     }),
-
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
       compress: {

@@ -22,7 +22,7 @@
     'contextmenu': true
   }
   export default {
-    name: 'ez-chart-vue-component',
+    name: 'ez-chart',
     props: {
       type: {
         type: String,
