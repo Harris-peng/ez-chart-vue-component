@@ -2565,9 +2565,9 @@ dns-equal@^1.0.0:
   integrity sha1-s55/HabrCnW6nBcySzR1PEfgZU0=
 
 dns-packet@^1.3.1:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/dns-packet/-/dns-packet-1.3.1.tgz#12aa426981075be500b910eedcd0b47dd7deda5a"
-  integrity sha512-0UxfQkMhYAUaZI+xrNZOz/as5KgDU0M/fQ9b6SpkyLbk3GEswDi6PADJVaYJradtRVsRIlF1zLyOodbcTCDzUg==
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/dns-packet/-/dns-packet-1.3.4.tgz#e3455065824a2507ba886c55a89963bb107dec6f"
+  integrity sha512-BQ6F4vycLXBvdrJZ6S3gZewt6rcrks9KBgM9vrhW+knGRqc8uEdT7fuCwloc7nny5xNoMJ17HGH0R/6fpo8ECA==
   dependencies:
     ip "^1.1.0"
     safe-buffer "^5.0.1"
@@ -3246,16 +3246,6 @@ ez-chart@^0.0.5:
   integrity sha512-xOWXzgcgoRaNImk0YmhJB9pEIiW8uahK2Il0XYwL6waSziNQrNkWZXt6l5SOTFr6C+TTzvf/rQozuanY0YGTaA==
   dependencies:
     lodash "^4.17.15"
-
-ez-vue-chart@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/ez-vue-chart/-/ez-vue-chart-0.0.6.tgz#f4645fa30bb59c7ba33cff84259d2a207f3668bc"
-  integrity sha512-lthe2/XtqKb8TuU77Gk/fcd++KmFe63VYtgOw3zw2uJScKuxClz0DhmcRyrf5Rau64DT3uUTPXt1iGp1S3wTWQ==
-  dependencies:
-    echarts "^4.7.0"
-    ez-chart "^0.0.5"
-    lodash "^4.17.15"
-    vue "^2.5.11"
 
 fast-deep-equal@^1.0.0:
   version "1.1.0"
