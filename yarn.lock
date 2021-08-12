@@ -3247,16 +3247,6 @@ ez-chart@^0.0.5:
   dependencies:
     lodash "^4.17.15"
 
-ez-vue-chart@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/ez-vue-chart/-/ez-vue-chart-0.0.6.tgz#f4645fa30bb59c7ba33cff84259d2a207f3668bc"
-  integrity sha512-lthe2/XtqKb8TuU77Gk/fcd++KmFe63VYtgOw3zw2uJScKuxClz0DhmcRyrf5Rau64DT3uUTPXt1iGp1S3wTWQ==
-  dependencies:
-    echarts "^4.7.0"
-    ez-chart "^0.0.5"
-    lodash "^4.17.15"
-    vue "^2.5.11"
-
 fast-deep-equal@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-1.1.0.tgz#c053477817c86b51daa853c81e059b733d023614"
@@ -5338,9 +5328,9 @@ path-key@^2.0.0, path-key@^2.0.1:
   integrity sha1-QRyttXTFoUDTpLGRDUDYDMn0C0A=
 
 path-parse@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
-  integrity sha512-GSmOT2EbHrINBf9SR7CDELwlJ8AENk3Qn7OikK4nFYAu3Ote2+JYNVvkpAEQm3/TLNEJFD/xZJjzyxg3KBWOzw==
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.7.tgz#fbc114b60ca42b30d9daf5858e4bd68bbedb6735"
+  integrity sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==
 
 path-to-regexp@0.1.7:
   version "0.1.7"
