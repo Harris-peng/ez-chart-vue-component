@@ -3247,16 +3247,6 @@ ez-chart@^0.0.5:
   dependencies:
     lodash "^4.17.15"
 
-ez-vue-chart@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/ez-vue-chart/-/ez-vue-chart-0.0.6.tgz#f4645fa30bb59c7ba33cff84259d2a207f3668bc"
-  integrity sha512-lthe2/XtqKb8TuU77Gk/fcd++KmFe63VYtgOw3zw2uJScKuxClz0DhmcRyrf5Rau64DT3uUTPXt1iGp1S3wTWQ==
-  dependencies:
-    echarts "^4.7.0"
-    ez-chart "^0.0.5"
-    lodash "^4.17.15"
-    vue "^2.5.11"
-
 fast-deep-equal@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-1.1.0.tgz#c053477817c86b51daa853c81e059b733d023614"
@@ -6798,10 +6788,10 @@ shebang-regex@^1.0.0:
   resolved "https://registry.yarnpkg.com/shebang-regex/-/shebang-regex-1.0.0.tgz#da42f49740c0b42db2ca9728571cb190c98efea3"
   integrity sha1-2kL0l0DAtC2yypcoVxyxkMmO/qM=
 
-shelljs@^0.7.6:
-  version "0.7.8"
-  resolved "https://registry.yarnpkg.com/shelljs/-/shelljs-0.7.8.tgz#decbcf874b0d1e5fb72e14b164a9683048e9acb3"
-  integrity sha1-3svPh0sNHl+3LhSxZKloMEjprLM=
+shelljs@^0.8.5:
+  version "0.8.5"
+  resolved "https://registry.yarnpkg.com/shelljs/-/shelljs-0.8.5.tgz#de055408d8361bed66c669d2f000538ced8ee20c"
+  integrity sha512-TiwcRcrkhHvbrZbnRcFYMLl30Dfov3HKqzp5tO5b4pt6G/SezKcYhmDg15zXVBswHmctSAQKznqNW2LO5tTDow==
   dependencies:
     glob "^7.0.0"
     interpret "^1.0.0"
